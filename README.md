@@ -127,7 +127,8 @@ sql_server_database 'mr_softie' do
     :host     => '127.0.0.1',
     :port     => node['sql_server']['port'],
     :username => 'sa',
-    :password => node['sql_server']['server_sa_password']
+    :password => node['sql_server']['server_sa_password'],
+    :options  => { 'ANSI_NULLS' => 'ON', 'QUOTED_IDENTIFIER' => 'OFF' }
   )
   action :create
 end
